@@ -7,8 +7,8 @@ SHELL ["/bin/bash", "-c"]
 RUN pip install virtualenv
 RUN virtualenv -p python3 ~/venv
 RUN source ~/venv/bin/activate
-RUN pip install -r /root/stuff/requirements.txt
-RUN pip install -r /root/stuff/test_requirements.txt
+RUN source ~/venv/bin/activate && pip install -r /root/stuff/requirements.txt
+RUN source ~/venv/bin/activate && pip install -r /root/stuff/test_requirements.txt
 COPY entrypoint.sh /entrypoint/entrypoint.sh
 RUN chmod +x /entrypoint/entrypoint.sh
 WORKDIR /github/workspace
